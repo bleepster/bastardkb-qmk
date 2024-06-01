@@ -24,7 +24,7 @@ enum dilemma_keymap_layers {
     LAYER_NUMBERS,
     LAYER_FUNCTION,
     LAYER_POINTER,
-    LAYER_EMPTY1,
+    LAYER_MAINTENANCE,
     LAYER_EMPTY2,
 };
 
@@ -108,10 +108,10 @@ enum dilemma_keymap_layers {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_3(
-    MO(LAYER_POINTER), KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_POINTER),
+    MO(LAYER_POINTER), KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MAINTENANCE),
     LH0_1,            LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
      KC_Z,              KC_X, KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
-               TO(LAYER_POINTER), LH_5,  LT_1ENT,       RT_1SPC, RH_5,  TO(LAYER_POINTER)
+                           KC_NO, LH_5,  LT_1ENT,       RT_1SPC, RH_5,  KC_NO
   ),
   [LAYER_SYMBOLS] = LAYOUT_split_3x5_3(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_COLN,
@@ -132,16 +132,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_NO, KC_TRNS, RGB_TOG,        KC_TRNS, KC_TRNS, KC_NO
   ),
   [LAYER_POINTER] = LAYOUT_split_3x5_3(
-    KC_TRNS, DRGSCRL, KC_NO, KC_NO, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO, KC_TRNS,
-    KC_LGUI, KC_LSFT, KC_LCTL, KC_LALT, KC_NO,    SNIPING, KC_BTN1, KC_BTN2, KC_NO, KC_NO,
-    QK_BOOT,   KC_NO,   KC_NO,   KC_NO, KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO, QK_BOOT,
-                    KC_BTN3, KC_BTN1, KC_BTN2,    S_D_MOD, DPI_MOD, TO(LAYER_BASE)
+    KC_TRNS, CTRLSHFT, ALTSHFT, KC_BTN1, KC_BTN2,        KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,
+    KC_LGUI,  KC_LSFT, KC_LCTL, KC_LALT,   KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    QK_BOOT,    KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+                         KC_NO, DRGSCRL, SNIPING,        S_D_MOD, DPI_MOD, KC_NO
   ),
-  [LAYER_EMPTY1] = LAYOUT_split_3x5_3(
+  [LAYER_MAINTENANCE] = LAYOUT_split_3x5_3(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                  KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
+                  KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, QK_BOOT
   ),
   [LAYER_EMPTY2] = LAYOUT_split_3x5_3(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
