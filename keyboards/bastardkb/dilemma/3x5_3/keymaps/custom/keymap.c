@@ -25,7 +25,7 @@ enum dilemma_keymap_layers {
     LAYER_FUNCTION,
     LAYER_POINTER,
     LAYER_MAINTENANCE,
-    LAYER_EMPTY2,
+    LAYER_MACRO,
 };
 
 #ifndef POINTING_DEVICE_ENABLE
@@ -40,7 +40,6 @@ enum dilemma_keymap_layers {
 #define LH0_2 MT(MOD_LSFT, KC_S)
 #define LH0_3 MT(MOD_LCTL, KC_D)
 #define LH0_4 MT(MOD_LALT, KC_F)
-#define LH_5 HYPR_T(KC_TAB)
 
 // left half mod tap (layer 1)
 #define LH1_1 MT(MOD_LCTL, KC_EQL)
@@ -75,6 +74,9 @@ enum dilemma_keymap_layers {
 #define RH3_1 MT(MOD_RALT, KC_VOLD)
 #define RH3_2 MT(MOD_RCTL, KC_VOLU)
 
+// left half - layer 4 tap
+#define LT_4TAB LT(LAYER_POINTER, KC_TAB)
+
 // left half - layer 3 tap
 #define LT_3T LT(3, KC_T)
 
@@ -108,10 +110,10 @@ enum dilemma_keymap_layers {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_3(
-    MO(LAYER_POINTER), KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MAINTENANCE),
-    LH0_1,            LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
-     KC_Z,              KC_X, KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
-                           KC_NO, LH_5,  LT_1ENT,       RT_1SPC, RH_5,  KC_NO
+    MO(LAYER_MACRO),  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MAINTENANCE),
+              LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
+               KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
+                      KC_HYPR, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_NO
   ),
   [LAYER_SYMBOLS] = LAYOUT_split_3x5_3(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_COLN,
@@ -132,18 +134,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_NO, KC_TRNS, RGB_TOG,        KC_TRNS, KC_TRNS, KC_NO
   ),
   [LAYER_POINTER] = LAYOUT_split_3x5_3(
-    KC_TRNS, CTRLSHFT, ALTSHFT, KC_BTN1, KC_BTN2,        KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,
-    KC_LGUI,  KC_LSFT, KC_LCTL, KC_LALT,   KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    QK_BOOT,    KC_NO,   KC_NO,   KC_NO,   KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                         KC_NO, DRGSCRL, SNIPING,        S_D_MOD, DPI_MOD, KC_NO
+    KC_LSFT,  KC_LALT, ALTSHFT,   KC_NO, KC_NO,        SNIPING, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_LCTL,  KC_BTN2, KC_BTN3, KC_BTN1, KC_NO,        DRGSCRL, KC_NO, KC_NO, KC_NO, KC_NO,
+    CTRLSHFT,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
+                         KC_TRNS, KC_NO, KC_NO,        KC_MEH,  KC_HYPR, KC_NO
   ),
   [LAYER_MAINTENANCE] = LAYOUT_split_3x5_3(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                  KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, QK_BOOT
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+        QK_CLEAR_EEPROM, KC_NO, KC_NO,       KC_NO, KC_NO, QK_BOOT
   ),
-  [LAYER_EMPTY2] = LAYOUT_split_3x5_3(
+  [LAYER_MACRO] = LAYOUT_split_3x5_3(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
