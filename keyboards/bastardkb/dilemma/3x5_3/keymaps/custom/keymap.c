@@ -134,10 +134,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_NO, KC_TRNS, RGB_TOG,        KC_TRNS, KC_TRNS, KC_NO
   ),
   [LAYER_POINTER] = LAYOUT_split_3x5_3(
-    KC_LSFT,  KC_LALT, ALTSHFT,   KC_NO, KC_NO,        SNIPING, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_LCTL,  KC_BTN2, KC_BTN3, KC_BTN1, KC_NO,        DRGSCRL, KC_NO, KC_NO, KC_NO, KC_NO,
-    CTRLSHFT,   KC_NO,   KC_NO,   KC_NO, KC_NO,        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
-                         KC_TRNS, KC_NO, KC_NO,        KC_MEH,  KC_HYPR, KC_NO
+       KC_NO,  KC_HYPR,  KC_MEH,   KC_NO,   KC_NO,        SNIPING, KC_NO, KC_NO, KC_NO, KC_NO,
+    CTRLSHFT,  KC_BTN2, KC_LCTL, KC_BTN1, KC_BTN3,        DRGSCRL, KC_NO, KC_NO, KC_NO, KC_NO,
+     KC_LALT,  KC_LSFT, ALTSHFT,   KC_NO,   KC_NO,        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
+                              KC_NO, KC_NO, KC_NO,        KC_NO,   KC_NO, KC_NO
   ),
   [LAYER_MAINTENANCE] = LAYOUT_split_3x5_3(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
