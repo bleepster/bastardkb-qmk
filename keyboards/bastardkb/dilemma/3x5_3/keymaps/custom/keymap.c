@@ -24,8 +24,7 @@ enum dilemma_keymap_layers {
     LAYER_NUMBERS,
     LAYER_FUNCTION,
     LAYER_POINTER,
-    LAYER_MAINTENANCE,
-    LAYER_MACRO,
+    LAYER_MISC,
 };
 
 #ifndef POINTING_DEVICE_ENABLE
@@ -110,10 +109,10 @@ enum dilemma_keymap_layers {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_3(
-    MO(LAYER_MACRO),  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MAINTENANCE),
-              LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
-               KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
-                      KC_HYPR, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_NO
+    MO(LAYER_MISC),  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MISC),
+             LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
+              KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
+                     KC_HYPR, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_NO
   ),
   [LAYER_SYMBOLS] = LAYOUT_split_3x5_3(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_COLN,
@@ -139,17 +138,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_LALT,  KC_LSFT, ALTSHFT,   KC_NO,   KC_NO,        KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO,
                               KC_NO, KC_NO, KC_NO,        KC_NO,   KC_NO, KC_NO
   ),
-  [LAYER_MAINTENANCE] = LAYOUT_split_3x5_3(
+  [LAYER_MISC] = LAYOUT_split_3x5_3(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,       KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-        QK_CLEAR_EEPROM, KC_NO, KC_NO,       KC_NO, KC_NO, QK_BOOT
-  ),
-  [LAYER_MACRO] = LAYOUT_split_3x5_3(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                  KC_NO, KC_NO, KC_NO,        KC_NO, KC_NO, KC_NO
+      QK_BOOT, QK_CLEAR_EEPROM, KC_NO,       KC_NO, QK_CLEAR_EEPROM, QK_BOOT
   ),
 };
 // clang-format on
