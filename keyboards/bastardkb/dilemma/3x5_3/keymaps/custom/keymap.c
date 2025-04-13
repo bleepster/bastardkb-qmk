@@ -106,12 +106,6 @@ enum dilemma_keymap_layers {
 // left OS + left ctrl
 #define OSCTRL LGUI(KC_LCTL)
 
-// MAC OS Screenshot
-#define SC_IMG RSG(KC_3)
-
-// MAC OS Screen Capture (video)
-#define SC_VID RSG(KC_5)
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_3(
@@ -133,7 +127,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                   KC_NO, OSSHFT, OSCTRL,        CTRLSHFT, ALTSHFT, KC_NO
   ),
   [LAYER_FUNCTION] = LAYOUT_split_3x5_3(
-    KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        SC_IMG,  SC_VID,  KC_NO,   KC_NO,   KC_NO,
+    KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        KC_NO,   KC_NO,  KC_NO,   KC_NO,   KC_NO,
      LH3_1, LH3_2, LH3_3, LH3_4, KC_NO,        KC_MUTE, RH3_1,   RH3_2,   KC_RSFT, KC_RGUI,
     KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,        KC_MPLY, KC_MRWD, KC_MFFD, KC_MSTP, KC_NO,
                KC_NO, KC_TRNS, RGB_TOG,        KC_TRNS, KC_TRNS, KC_NO
