@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(LAYER_MISC),  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    MO(LAYER_MISC),
              LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
               KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
-                     KC_HYPR, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_NO
+                     KC_HYPR, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_CAPS
   ),
   [LAYER_SYMBOLS] = LAYOUT_split_3x5_3(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_COLN,
@@ -157,12 +157,10 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #endif     // POINTING_DEVICE_ENABLE
 
 // combos
-const uint16_t PROGMEM combo_capslock[] = {KC_E, KC_R, COMBO_END};
 const uint16_t PROGMEM combo_backspace[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_W, KC_E, COMBO_END};
 
 combo_t key_combos[] = {
-    COMBO(combo_capslock, KC_CAPS),
     COMBO(combo_backspace, KC_BSPC),
     COMBO(combo_escape, KC_ESC)
 };
