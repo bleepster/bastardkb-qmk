@@ -64,11 +64,6 @@ enum dilemma_keymap_layers {
 // right half mod tap (layer 1)
 #define RH1_1 MT(MOD_LCTL, KC_SCLN)
 
-// right half mod tap (layer 2)
-#define RH2_1 MT(MOD_RALT, KC_DOWN)
-#define RH2_2 MT(MOD_RCTL, KC_UP)
-#define RH2_3 MT(MOD_RSFT, KC_RIGHT)
-
 // right half mod tap (layer 3)
 #define RH3_1 MT(MOD_RALT, KC_VOLD)
 #define RH3_2 MT(MOD_RCTL, KC_VOLU)
@@ -121,9 +116,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_NO, KC_TRNS, KC_TRNS,        CTRLSHFT, ALTSHFT, KC_NO
   ),
   [LAYER_NUMBERS] = LAYOUT_split_3x5_3(
-      KC_NO,  KC_7,  KC_8,  KC_9, KC_NO,        KC_HOME,  KC_PGDN, KC_PGUP, KC_END, KC_NO,
-    KC_LGUI, LH2_1, LH2_2, LH2_3, KC_NO,        KC_LEFT,  RH2_1,   RH2_2,   RH2_3,  KC_RGUI,
-       KC_0,  KC_1,  KC_2,  KC_3, KC_NO,        KC_NO,    KC_NO,   KC_NO,   KC_NO,  KC_NO,
+      KC_NO,  KC_7,  KC_8,  KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
+    KC_LGUI, LH2_1, LH2_2, LH2_3, KC_NO,        KC_NO,   KC_RALT, KC_RCTL, KC_RSFT, KC_RGUI,
+       KC_0,  KC_1,  KC_2,  KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                   KC_NO, OSSHFT, OSCTRL,        CTRLSHFT, ALTSHFT, KC_NO
   ),
   [LAYER_FUNCTION] = LAYOUT_split_3x5_3(
@@ -159,11 +154,19 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // combos
 const uint16_t PROGMEM combo_backspace[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_capslock[] = {KC_Q, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_capslock[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM combo_uparrow[] = {KC_Q, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_downarrow[] = {KC_M, KC_Q, COMBO_END};
+const uint16_t PROGMEM combo_rightarrow[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM combo_leftarrow[] = {KC_X, KC_C, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_backspace, KC_BSPC),
     COMBO(combo_escape, KC_ESC),
     COMBO(combo_capslock, KC_CAPS),
+    COMBO(combo_uparrow, KC_UP),
+    COMBO(combo_downarrow, KC_DOWN),
+    COMBO(combo_rightarrow, KC_RIGHT),
+    COMBO(combo_leftarrow, KC_LEFT),
 };
 
