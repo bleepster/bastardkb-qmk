@@ -160,14 +160,14 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // combos
 const uint16_t PROGMEM combo_backspace[] = {KC_I, KC_O, COMBO_END};
 const uint16_t PROGMEM combo_escape[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_uparrow[] = {KC_Q, KC_COMM, COMBO_END};
+const uint16_t PROGMEM combo_rhalf_uparrow[] = {KC_U, KC_I, COMBO_END};
 const uint16_t PROGMEM combo_rhalf_downarrow[] = {KC_M, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_rightarrow[] = {KC_COMM, KC_DOT, COMBO_END};
+const uint16_t PROGMEM combo_rhalf_rightarrow[] = {KC_Q, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_rhalf_leftarrow[] = {KC_N, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_uparrow[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_downarrow[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM combo_lhalf_uparrow[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM combo_lhalf_downarrow[] = {KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_lhalf_rightarrow[] = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_leftarrow[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM combo_lhalf_leftarrow[] = {KC_X, KC_C, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(combo_backspace, KC_BSPC),
@@ -181,4 +181,3 @@ combo_t key_combos[] = {
     COMBO(combo_lhalf_rightarrow, KC_RIGHT),
     COMBO(combo_lhalf_leftarrow, KC_LEFT),
 };
-
