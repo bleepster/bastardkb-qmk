@@ -95,6 +95,12 @@ enum dilemma_keymap_layers {
 // right half - right GUI + right control
 #define R_GUICTL RGUI(KC_RCTL)
 
+// left half - layer 5 tap
+#define LT_5DOT LT(5, KC_DOT)
+
+// right half - layer 5 tap
+#define LT_5Z LT(5, KC_Z)
+
 // left control + left shift
 #define CTRLSHFT LCTL(KC_LSFT)
 
@@ -112,7 +118,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT_split_3x5_3(
     L_GUICTL,  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    R_GUICTL,
        LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
-        KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, KC_DOT,
+       LT_5Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, LT_5DOT,
                KC_CAPS, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5,  KC_MEH
   ),
   [LAYER_SYMBOLS] = LAYOUT_split_3x5_3(
