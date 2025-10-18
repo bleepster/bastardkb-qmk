@@ -21,7 +21,8 @@ enum charybdis_keymap_layers {
     LAYER_BASE = 0,
     LAYER_SYMBOLS,
     LAYER_NUMBERS,
-    LAYER_FUNCTION,
+    LAYER_FUNCTIONS,
+    LAYER_NAVIGATION,
     LAYER_POINTER,
     LAYER_MISC,
 
@@ -68,38 +69,35 @@ enum charybdis_keymap_layers {
 #define RH3_1 MT(MOD_RALT, KC_VOLD)
 #define RH3_2 MT(MOD_RCTL, KC_VOLU)
 
-// left half - layer 4 tap
-#define LT_4TAB LT(LAYER_POINTER, KC_TAB)
+// left half - symbols layer tap
+#define LT_SYMBOLS_ENT LT(LAYER_SYMBOLS, KC_ENT)
 
-// left half - layer 3 tap
-#define LT_3T LT(3, KC_T)
+// right half - symbols layer tap
+#define RT_SYMBOLS_SPC LT(LAYER_SYMBOLS, KC_SPC)
 
-// right half - layer 3 tap
-#define RT_3Y LT(3, KC_Y)
+// left half - number layer tap
+#define LT_NUMBERS_G LT(LAYER_NUMBERS, KC_G)
 
-// left half - layer 2 tap
-#define LT_2G LT(2, KC_G)
+// right half - number layer tap
+#define RT_NUMBERS_H LT(LAYER_NUMBERS, KC_H)
 
-// right half - layer 2 tap
-#define RT_2H LT(2, KC_H)
+// left half - functions layer tap
+#define LT_FUNTIONS_T LT(LAYER_FUNCTIONS, KC_T)
 
-// left half - layer 1 tap
-#define LT_1ENT LT(1, KC_ENT)
+// right half - functions layer tap
+#define RT_FUNCTIONS_Y LT(LAYER_FUNCTIONS, KC_Y)
 
-// right half - layer 1 tap
-#define RT_1SPC LT(1, KC_SPC)
+// left half - navigation layer tap
+#define LT_NAVIGATION_CAPS LT(LAYER_NAVIGATION, KC_CAPS)
 
-// left half - left GUI + left control
-#define L_GUICTL LGUI(KC_LCTL)
+// left half - pointer layer tap
+#define LT_POINTER_TAB LT(LAYER_POINTER, KC_TAB)
 
-// right half - right GUI + right control
-#define R_GUICTL RGUI(KC_RCTL)
+// left half - misc layer tap
+#define LT_MISC_DOT LT(LAYER_MISC, KC_DOT)
 
-// left half - layer 5 tap
-#define LT_5DOT LT(5, KC_DOT)
-
-// right half - layer 5 tap
-#define LT_5Z LT(5, KC_Z)
+// right half - misc layer tap
+#define LT_MISC_Z LT(LAYER_MISC, KC_Z)
 
 // left control + left shift
 #define CTRLSHFT LCTL(KC_LSFT)
@@ -116,10 +114,10 @@ enum charybdis_keymap_layers {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_BASE] = LAYOUT(
-    L_GUICTL,  KC_W,  KC_E,  KC_R, LT_3T,       RT_3Y,   KC_U,  KC_I,  KC_O,    R_GUICTL,
-       LH0_1, LH0_2, LH0_3, LH0_4, LT_2G,       RT_2H,   RH0_1, RH0_2, RH0_3,   RH0_4,
-       LT_5Z,  KC_X,  KC_C,  KC_V,  KC_B,       KC_N,    KC_M,  KC_Q,  KC_COMM, LT_5DOT,
-               KC_CAPS, LT_4TAB, LT_1ENT,       RT_1SPC, RH_5
+            KC_ESC,  KC_W,  KC_E,  KC_R, LT_FUNTIONS_T,       RT_FUNCTIONS_Y, KC_U,  KC_I,  KC_O,    KC_BSPC,
+             LH0_1, LH0_2, LH0_3, LH0_4,  LT_NUMBERS_G,       RT_NUMBERS_H,   RH0_1, RH0_2, RH0_3,   RH0_4,
+         LT_MISC_Z,  KC_X,  KC_C,  KC_V,          KC_B,       KC_N,           KC_M,  KC_Q,  KC_COMM, LT_MISC_DOT,
+    LT_NAVIGATION_CAPS, LT_POINTER_TAB, LT_SYMBOLS_ENT,       RT_SYMBOLS_SPC, RH_5
   ),
   [LAYER_SYMBOLS] = LAYOUT(
     KC_PLUS, KC_PIPE, KC_QUES, KC_UNDS, KC_DQUO,        KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_COLN,
@@ -128,16 +126,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                         KC_NO, KC_TRNS, KC_TRNS,        CTRLSHFT, ALTSHFT
   ),
   [LAYER_NUMBERS] = LAYOUT(
-      KC_NO,  KC_7,  KC_8,  KC_9, KC_NO,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_NO,
-    KC_LGUI, LH2_1, LH2_2, LH2_3, KC_NO,        KC_NO,   KC_RALT, KC_RCTL, KC_RSFT, KC_RGUI,
-       KC_0,  KC_1,  KC_2,  KC_3, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO,  KC_7,  KC_8,  KC_9, KC_NO,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    KC_LGUI, LH2_1, LH2_2, LH2_3, KC_NO,        KC_NO, KC_RALT, KC_RCTL, KC_RSFT, KC_RGUI,
+       KC_0,  KC_1,  KC_2,  KC_3, KC_NO,        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
                   KC_NO, OSSHFT, OSCTRL,        CTRLSHFT, ALTSHFT
   ),
-  [LAYER_FUNCTION] = LAYOUT(
+  [LAYER_FUNCTIONS] = LAYOUT(
     KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,        KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
      LH3_1, LH3_2, LH3_3, LH3_4, KC_NO,        KC_MUTE, RH3_1,   RH3_2,   KC_RSFT, KC_RGUI,
     KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,        KC_MPLY, KC_MRWD, KC_MFFD, KC_MSTP, KC_NO,
                KC_NO, KC_TRNS, RGB_TOG,        KC_TRNS, KC_TRNS
+  ),
+  [LAYER_NAVIGATION] = LAYOUT(
+     OSCTRL,    KC_NO,   KC_NO,   KC_NO, KC_NO,       KC_HOME, KC_PGDN, KC_PGUP, KC_END,   KC_NO,
+    KC_LGUI,  KC_LSFT, KC_LCTL, KC_LALT, KC_NO,       KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_NO,
+    KC_NO,      KC_NO,   KC_NO,   KC_NO, KC_NO,       KC_NO,   KC_NO,   KC_NO,   KC_NO,    KC_NO,
+                           KC_NO, KC_NO, KC_NO,       KC_NO,   KC_NO
   ),
   [LAYER_POINTER] = LAYOUT(
       KC_MEH,  KC_HYPR, DRGSCRL,   KC_NO,   KC_NO,        SNIPING, KC_NO, KC_NO, KC_NO, KC_NO,
@@ -153,29 +157,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 // clang-format on
-
-// combos
-const uint16_t PROGMEM combo_backspace[] = {KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM combo_escape[] = {KC_W, KC_E, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_uparrow[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_downarrow[] = {KC_M, KC_Q, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_rightarrow[] = {KC_Q, KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo_rhalf_leftarrow[] = {KC_N, KC_M, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_uparrow[] = {KC_E, KC_R, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_downarrow[] = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_rightarrow[] = {KC_V, KC_B, COMBO_END};
-const uint16_t PROGMEM combo_lhalf_leftarrow[] = {KC_X, KC_C, COMBO_END};
-
-combo_t key_combos[] = {
-    COMBO(combo_backspace, KC_BSPC),
-    COMBO(combo_escape, KC_ESC),
-    COMBO(combo_rhalf_uparrow, KC_UP),
-    COMBO(combo_rhalf_downarrow, KC_DOWN),
-    COMBO(combo_rhalf_rightarrow, KC_RIGHT),
-    COMBO(combo_rhalf_leftarrow, KC_LEFT),
-    COMBO(combo_lhalf_uparrow, KC_UP),
-    COMBO(combo_lhalf_downarrow, KC_DOWN),
-    COMBO(combo_lhalf_rightarrow, KC_RIGHT),
-    COMBO(combo_lhalf_leftarrow, KC_LEFT),
-};
-
