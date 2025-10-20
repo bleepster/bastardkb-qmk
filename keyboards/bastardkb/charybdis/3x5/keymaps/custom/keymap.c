@@ -25,7 +25,6 @@ enum charybdis_keymap_layers {
     LAYER_NAVIGATION,
     LAYER_POINTER,
     LAYER_MISC,
-
 };
 
 #ifndef POINTING_DEVICE_ENABLE
