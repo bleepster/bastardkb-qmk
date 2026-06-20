@@ -45,3 +45,10 @@ Change the value of `DILEMMA_AUTO_SNIPING_ON_LAYER` to automatically enable snip
 ```c
 #define DILEMMA_AUTO_SNIPING_ON_LAYER LAYER_POINTER
 ```
+
+### Custom Keymap
+
+![Custom Kyemap](dilemma.svg)
+
+Keymap generated using the [keymap-drawer](https://github.com/caksoylar/keymap-drawer)
+
